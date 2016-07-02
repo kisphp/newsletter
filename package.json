@@ -1,0 +1,29 @@
+{
+  "name": "kisphp-newsletter",
+  "version": "1.0.0",
+  "description": "Kisphp Simple Newsletter",
+  "main": "index.js",
+  "scripts": {
+    "setup": "bower install",
+    "postsetup": "cp .htaccess.bower web/bower/.htaccess",
+    "web": "gulp --gulpfile app/gulp/web/gulpfile.js --cwd .",
+    "postinstall": "npm run setup && npm run web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:kisphp/sonia.local.git"
+  },
+  "author": "Marius",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-strip-comments": "^2.3.2",
+    "gulp-uglify": "^1.5.3"
+  }
+}
