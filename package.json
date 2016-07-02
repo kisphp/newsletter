@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "bower install",
     "postsetup": "cp .htaccess.bower web/bower/.htaccess",
-    "web": "gulp --gulpfile app/gulp/web/gulpfile.js --cwd .",
+    "web": "gulp --gulpfile app/gulp/gulpfile.js --cwd .",
     "postinstall": "npm run setup && npm run web"
   },
   "repository": {
