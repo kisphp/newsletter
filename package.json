@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:kisphp/sonia.local.git"
+    "url": "git@github.com:kisphp/newsletter.git"
   },
   "author": "Marius",
   "license": "ISC",
