@@ -1,0 +1,26 @@
+parameters:
+    widget_menu_listener_class:
+        Kisphp\Admin\MainBundle\Listener\AdminMenuEventListener
+
+services:
+    admin_menu_listener:
+        class: '%widget_menu_listener_class%'
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    menu_reader:
+        class: Kisphp\Admin\MainBundle\Services\AdminMenuReader
+        arguments: [@doctrine.orm.entity_manager]
+
+    file_manager:
+        class: Kisphp\Admin\MainBundle\Services\FilesManager
+        arguments: ['%kernel.root_dir%', '%upload_directory%']
+
+    toggle_status_service:
+        class: Kisphp\Admin\MainBundle\Services\ToggleableStatusService
+
+    redis_manager:
+        class: Kisphp\Admin\MainBundle\Services\Redis\RedisManager
+        arguments: [@snc_redis.default, @service_container]

@@ -1,0 +1,22 @@
+homepage:
+  path: /
+  defaults: { _controller: AppBundle:Index:index }
+
+access_denied:
+  path: /access/denied
+  defaults: { _controller: AppBundle:Index:denied }
+
+security_login:
+  path: /login
+  defaults: { _controller: AppBundle:Security:login }
+
+security_login_check:
+  path: /login/check
+  defaults: { _controller: AppBundle:Security:loginCheck }
+
+security_logout:
+  path: /logout
+  defaults: { _controller: AppBundle:Security:logout }
+
+users_routes:
+  resource: "@AppBundle/Resources/config/routes/users.yml"

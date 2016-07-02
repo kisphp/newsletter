@@ -1,0 +1,23 @@
+adm_users:
+  path: /users
+  defaults: { _controller: AppBundle:Users:index }
+
+adm_users_new:
+  path: /users/new
+  defaults: { _controller: AppBundle:Users:create }
+
+adm_users_edit:
+  path: /users/edit/{id}
+  defaults: { _controller: AppBundle:Users:edit }
+
+adm_users_remove:
+  path: /users/remove
+  defaults: { _controller: AppBundle:Users:remove }
+
+adm_users_status:
+  path: /users/status
+  defaults: { _controller: AppBundle:Users:status }
+
+adm_users_resend_activate_email:
+  path: /user/resentEmail
+  defaults: { _controller: AppBundle:Users:resendActivateEmail }
