@@ -11,7 +11,7 @@ security:
 
     providers:
         database_users:
-            entity: { class: AppBundle\Entity\UsersEntity }
+            entity: { class: Kisphp\NewsletterBundle\Entity\UserEntity }
 
     firewalls:
         client_area:

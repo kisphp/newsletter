@@ -1,0 +1,3 @@
+kisphp_newsletter_homepage:
+    path:     /
+    defaults: { _controller: KisphpNewsletterBundle:Default:index }
