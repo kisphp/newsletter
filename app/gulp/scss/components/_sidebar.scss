@@ -1,0 +1,74 @@
+// variables
+
+$accordion-bg: #4d5158;
+$accordion-sub-bg: #35383d;
+$accordion-separator: #41444a;
+
+.sidebar {
+  padding: 0;
+  height: 100%;
+}
+
+.accordion-menu, .sidebar {
+  background: $accordion-bg;
+}
+
+// background for main accordion items
+.is-accordion-submenu-parent a {
+  background: $accordion-bg;
+}
+
+// background for sub accordion items
+.is-accordion-submenu a {
+  background: $accordion-sub-bg;
+}
+
+// style for folder icon on subitem anchors without a submenu
+[data-accordion-menu] .is-accordion-submenu-parent[aria-expanded="true"] a.subitem::before {
+  content: "\f016";
+  font-family: FontAwesome;
+  margin-right: 1rem;
+}
+
+// changes folder icon to open then accordion is open
+[data-accordion-menu] .is-accordion-submenu-parent[aria-expanded="true"] a {
+  &::before {
+    content: "\f07c";
+    font-family: FontAwesome;
+    margin-right: 1rem;
+  }
+}
+
+// changes folder icon to closed then accordion is closed
+[data-accordion-menu] .is-accordion-submenu-parent[aria-expanded="false"] a {
+  &::before {
+    content: "\f07b";
+    font-family: FontAwesome;
+    margin-right: 1rem;
+  }
+}
+
+// creates classes for nested elements, sub-item-*
+@for $i from 1 through 6 {
+  .sublevel-#{$i} {
+    text-indent: 0rem + $i;
+  }
+}
+
+[data-accordion-menu] {
+  a {
+    color: #fff;
+    // sets accodion item separator color
+    box-shadow: inset 0 -1px $accordion-separator;
+
+    &::after {
+      // sets accodion arrow color and direction
+      border-color: #fff transparent transparent;
+    }
+  }
+}
+
+// padding for each list item
+.menu > li:not(.menu-text) > a {
+  padding: 1rem;
+}

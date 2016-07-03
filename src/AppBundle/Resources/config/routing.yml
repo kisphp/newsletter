@@ -1,4 +1,4 @@
-homepage:
+app_homepage:
   path: /
   defaults: { _controller: AppBundle:Index:index }
 
@@ -18,5 +18,3 @@ security_logout:
   path: /logout
   defaults: { _controller: AppBundle:Security:logout }
 
-users_routes:
-  resource: "@AppBundle/Resources/config/routes/users.yml"

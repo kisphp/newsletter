@@ -15,10 +15,14 @@ var targetPublicAssets = 'web/dist/';
 
 var config = {
   sources: {
+    fonts: [
+      sourceBower + 'font-awesome/fonts/**/*.*'
+
+    ],
     scss: {
       external: [
         sourceBower + 'foundation-sites/dist/foundation.min.css',
-        sourceBower + 'fontawesome/css/font-awesome.min.css',
+        sourceBower + 'font-awesome/css/font-awesome.min.css',
         sourceBower + 'sweetalert/dist/sweetalert.css'
       ],
       internal: [
@@ -43,7 +47,7 @@ gulp.task('css-external', function(){
     .pipe(plumber())
     .pipe(concat('external.css'))
     .pipe(gulp.dest(targetPublicAssets + 'css'))
-    ;
+  ;
 });
 
 gulp.task('css', function(){
@@ -57,16 +61,9 @@ gulp.task('css', function(){
 });
 
 gulp.task('copy-fonts', function(){
-  gulp.src([
-    sourceBower + 'fontawesome/fonts/*.*'
-  ], [{ base: 'bower/' }])
-    .pipe(gulp.dest('web/fonts'))
+  gulp.src(config.sources.fonts, [{ base: './' }])
+    .pipe(gulp.dest(targetPublicAssets + 'fonts'))
   ;
-});
-
-gulp.task('copy-files', ['copy-fonts'], function(){
-  //return gulp.src(sourceScssDir + 'responsive/**/*.css')
-  //    .pipe(gulp.dest('web/css/responsive'));
 });
 
 gulp.task('js-external', function(){
@@ -97,4 +94,4 @@ gulp.task('watch', ['css'], function(){
   ], ['css'])
 });
 
-gulp.task('default', ['css', 'css-external', 'copy-files', 'js', 'js-external']);
+gulp.task('default', ['css', 'css-external', 'copy-fonts', 'js', 'js-external']);

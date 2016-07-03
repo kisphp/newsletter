@@ -1,3 +1,6 @@
 homepage:
     path: /
     defaults: { _controller: KisphpNewsletterBundle:Default:index }
+
+users_routes:
+  resource: "@KisphpNewsletterBundle/Resources/config/routes/users.yml"

@@ -7,23 +7,49 @@
     <title>{% block page_title %}{{ page_title | default('Admin') }}{% endblock %}</title>
 
     {% block css %}
-    <link href="/dist/css/external.css" rel="stylesheet">
-    <link href="/dist/css/bundle.css" rel="stylesheet">
+        <link href="/dist/css/external.css" rel="stylesheet">
+        <link href="/dist/css/bundle.css" rel="stylesheet">
     {% endblock %}
 
 </head>
 <body>
 
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text"><a href="{{ path('homepage') }}">Kisphp Simple Newsletter</a></li>
+            <li><a href="">{{ 'Add Device' | trans }}</a></li>
+            <li><a href="">{{ 'Devices List' | trans }}</a></li>
+            <li><a href="">{{ 'Users List' | trans }}</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li><a href="">{{ 'Login' | trans }}</a></li>
+            <li><a href="">{{ 'Register' | trans }}</a></li>
+        </ul>
+    </div>
+</div>
+
 {% block body_container %}
 
-    {% block body %}
-    {% endblock %}
+    <div class="main-container">
+        <div class="column small-4 medium-3 large-2 sidebar">
+            {% include 'KisphpNewsletterBundle:partials:sidebar.html.twig' %}
+        </div>
+        <div class="column small-8 medium-9 large-10" id="map-container">
+            content
+            {% block body %}
+                {#{% include 'IfindBundle:partials:map.html.twig' %}#}
+            {% endblock %}
+        </div>
+    </div>
 
 {% endblock %}
 
 {% block js %}
-<script src="/dist/js/external.js"></script>
-<script src="/dist/js/bundle.js"></script>
+    <script src="/dist/js/external.js"></script>
+    <script src="/dist/js/bundle.js"></script>
 {% endblock %}
 
 </body>

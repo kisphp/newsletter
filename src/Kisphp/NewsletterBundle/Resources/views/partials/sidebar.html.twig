@@ -1,0 +1,5 @@
+{% set route = app.request.attributes.get('_route') %}
+<ul class="vertical accordion-menu menu" data-accordion-menu>
+    <li class="active"><a href="#"><i class="fa fa-list"></i> {{ 'Newsletters' | trans }}</a></li>
+    <li><a href="#"><i class="fa fa-users"></i> {{ 'Subscribers' | trans }}</a></li>
+</ul>

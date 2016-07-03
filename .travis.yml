@@ -7,7 +7,7 @@ php:
 before_script:
   - travis_retry composer self-update
 install:
-  - composer install --prefer-source --no-interaction
+  - composer install --prefer-dist --no-interaction
 script:
   - phpunit --coverage-clover=coverage.xml
   - vendor/bin/php-cs-fixer fix --dry-run
