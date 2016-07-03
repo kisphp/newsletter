@@ -2,10 +2,7 @@
 
 namespace Kisphp\NewsletterBundle\Entity;
 
-use Kisphp\Admin\MainBundle\Utils\Strings;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Kisphp\Admin\MainBundle\Utils\Status;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -21,5 +18,4 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class UserEntity implements UserInterface
 {
-
 }
