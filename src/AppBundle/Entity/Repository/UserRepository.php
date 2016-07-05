@@ -1,6 +1,6 @@
 <?php
 
-namespace Kisphp\NewsletterBundle\Entity\Repository;
+namespace AppBundle\Entity\Repository;
 
 use AppBundle\Utils\Status;
 use Doctrine\ORM\EntityRepository;

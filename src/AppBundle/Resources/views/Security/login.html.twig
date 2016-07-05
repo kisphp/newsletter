@@ -1,20 +1,25 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
+{% block body_header '' %}
+
 {% block body_container %}
 
     <div class="desp d20"></div>
     <div class="medium-6 medium-centered large-4 large-centered columns">
-        <form>
+        <form action="{{ path('security_login_check') }}" method="post" role="form" class="m-t">
             <div class="row column log-in-form">
-                <h4 class="text-center">Log in with you email account</h4>
+                <h4 class="text-center">{{ 'Authentication' | trans }}</h4>
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.message }}</div>
+                {% endif %}
                 <label>Email
-                    <input type="text" placeholder="somebody@example.com">
+                    <input type="email" name="_username" placeholder="{{ 'Email' | trans }}" value="{{ last_username }}" class="form-control">
                 </label>
                 <label>Password
-                    <input type="text" placeholder="Password">
+                    <input type="password" name="_password" placeholder="{{ 'Password' | trans }}" class="form-control">
                 </label>
-                <p><a type="submit" class="button expanded">Log In</a></p>
-                <p class="text-center"><a href="#">Forgot your password?</a></p>
+                <p><button type="submit" class="button expanded">{{ 'Log In' | trans }}</button></p>
+                {#<p class="text-center"><a href="#">Forgot your password?</a></p>#}
             </div>
         </form>
     </div>

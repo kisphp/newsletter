@@ -17,4 +17,3 @@ security_login_check:
 security_logout:
   path: /logout
   defaults: { _controller: AppBundle:Security:logout }
-

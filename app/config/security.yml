@@ -1,7 +1,7 @@
 security:
 
     encoders:
-        AppBundle\Entity\UsersEntity: #plaintext
+        AppBundle\Entity\UserEntity:
             algorithm: bcrypt
             cost: 12
 
@@ -11,7 +11,7 @@ security:
 
     providers:
         database_users:
-            entity: { class: Kisphp\NewsletterBundle\Entity\UserEntity }
+            entity: { class: AppBundle\Entity\UserEntity, property: email }
 
     firewalls:
         client_area:
@@ -19,18 +19,18 @@ security:
             anonymous: ~
             provider: database_users
             form_login:
-                check_path: user_login_check
-                login_path: user_login
+                check_path: security_login_check
+                login_path: security_login
                 default_target_path: user_account
                 use_referer: false
             logout:
-                path: user_logout
+                path: security_logout
                 target: homepage
                 invalidate_session: true
 
     access_control:
-        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/user/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/user/account, roles: ROLE_USER }
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/account, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/, roles: ROLE_SUPER_ADMIN }
