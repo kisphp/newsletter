@@ -1,0 +1,39 @@
+@mixin radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin panel-title {
+  > a {
+
+    &:hover {
+      color: #369;
+    }
+
+    &:focus,
+    &[aria-selected='true'] {
+      background: #369;
+    }
+  }
+}
+
+.panel {
+  margin-bottom: 10px;
+  list-style-type: none;
+  background: #fff;
+  border: 1px solid #ccc;
+
+  .panel-title {
+    font-size: 1.1em;
+    padding: 10px 15px;
+    font-weight: 500;
+    background: #e6e6e6;
+
+    @include panel-title;
+  }
+
+  .panel-body {
+    padding: 10px 15px;
+  }
+}

@@ -1,17 +1,28 @@
 @mixin desp($height) {
+  height: $height;
+}
+
+.desp {
   margin: 0;
   padding: 0;
   clear: both;
   overflow: hidden;
   line-height: 0;
   font-size: 0;
-  height: $height;
-}
 
-.desp-5 { @include desp(5px); }
-.desp-10 { @include desp(10px); }
-.desp-15 { @include desp(15px); }
-.desp-20 { @include desp(20px); }
+  &.d5 {
+    @include desp(5px);
+  }
+  &.d10 {
+    @include desp(10px);
+  }
+  &.d15 {
+    @include desp(15px);
+  }
+  &.d20 {
+    @include desp(20px);
+  }
+}
 
 .icon-block {
   padding: 0 15px;

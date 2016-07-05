@@ -1,4 +1,6 @@
 services:
-#    kisphp_newsletter.example:
-#        class: Kisphp\NewsletterBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    twig.newsletter_extensions:
+        class: Kisphp\NewsletterBundle\Twig\AdminExtension
+        public: false
+        tags:
+            - { name: twig.extension }
