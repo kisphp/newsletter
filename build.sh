@@ -44,20 +44,6 @@ function writeErrorMessage {
     fi
 }
 
-function upgradeNode {
-    if [[ `node -v | grep -E '^v[0-4]'` ]]; then
-        labelText "Upgrade Node.js"
-        sudo $NPM cache clean -f
-        sudo $NPM install -g n
-        sudo n stable
-
-        successText "Node.js updated to version `node -v`"
-        successText "NPM updated to version `$NPM -v`"
-    fi
-}
-
-upgradeNode
-
 if [[ "dev" == "$1" ]]; then
     labelText "Development run"
     $COMPOSER install
@@ -68,11 +54,11 @@ else
     $COMPOSER install --no-dev -o -a
 fi
 
-#labelText "Run setup:install"
-#$PHP $PWD/app/console setup:install
+labelText "Run setup:install"
+$PHP $PWD/bin/console setup:install
 
-#labelText "Run npm install"
-#$NPM install
+labelText "Run npm install"
+$NPM install
 
 if [[ "dev" == "$1" ]]; then
     $PHPUNIT
