@@ -1,8 +1,8 @@
 <?php
 
-namespace Kisphp\NewsletterBundle\Twig\Functions;
+namespace AppBundle\Twig\Functions;
 
-use Kisphp\NewsletterBundle\Twig\AbstractTwigFunction;
+use AppBundle\Twig\AbstractTwigFunction;
 
 class MatchFunction extends AbstractTwigFunction
 {

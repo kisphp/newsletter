@@ -1,1 +1,50 @@
 {% extends "KisphpNewsletterBundle::layout.html.twig" %}
+
+{% set current_page_title = 'Newsletters List' %}
+
+{% block page_title current_page_title %}
+
+{% block body %}
+
+    <div class="panel">
+        <div class="panel-title">
+            {{ current_page_title | trans }}
+        </div>
+        <div class="panel-body">
+
+            <table>
+                <tr>
+                    <th>Options</th>
+                    <th>Actions</th>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Created</th>
+                </tr>
+                {% for stateObject in items %}
+                    {% set entity = stateObject.getObject() %}
+                    <tr id="row-{{ entity.id }}">
+                        <td>
+                            {% if stateObject.getCurrentState.get('edit') == true %}
+                                edit
+                                {#{{ editTableButton(path('adm_newsletter_edit', {id: entity.id}), 'Edit' | trans, { class: 'btn-sm' }) }}#}
+                            {% endif %}
+                            {% if stateObject.getCurrentState.get('delete') == true %}
+                                delete
+                                {#{{ removeTableButton('#', 'Delete' | trans, { id: 'remove-' ~ entity.id, class: 'remove-object' }) }}#}
+                            {% endif %}
+                        </td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.subject }}</td>
+                        <td>{{ entity.registered | date('m-d-Y') }}</td>
+                        <td>{{ stateObject.currentState }}</td>
+                        <td>
+                            {{ transitionActions(stateObject) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+
+{% endblock %}

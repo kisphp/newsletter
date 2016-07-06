@@ -1,17 +1,17 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Table;
+namespace AppBundle\Twig\Table;
 
-use Kisphp\Admin\MainBundle\Twig\AbstractTableButton;
+use AppBundle\Twig\AbstractTableButton;
 
-class EditTableButton extends AbstractTableButton
+class CreateTableButton extends AbstractTableButton
 {
     /**
      * @return string
      */
     protected function getFunctionName()
     {
-        return 'editTableButton';
+        return 'createTableButton';
     }
 
     /**
@@ -19,7 +19,7 @@ class EditTableButton extends AbstractTableButton
      */
     protected function getButtonClass()
     {
-        return 'btn-edit';
+        return 'btn-create';
     }
 
     /**
@@ -27,6 +27,6 @@ class EditTableButton extends AbstractTableButton
      */
     protected function getIcon()
     {
-        return '<i class="fa fa-pencil-square-o"></i> ';
+        return '<i class="fa fa-plus"></i> ';
     }
 }

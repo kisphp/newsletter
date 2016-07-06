@@ -1,9 +1,9 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Filters;
+namespace AppBundle\Twig\Filters;
 
-use BaseBundle\Twig\AbstractTwigFilterExtension;
-use Kisphp\Admin\MainBundle\Utils\Status;
+use AppBundle\Twig\AbstractTwigFilterExtension;
+use AppBundle\Utils\Status;
 
 class StatusFilter extends AbstractTwigFilterExtension
 {

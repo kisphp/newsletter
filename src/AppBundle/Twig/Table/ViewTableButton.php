@@ -1,17 +1,17 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Table;
+namespace AppBundle\Twig\Table;
 
-use Kisphp\Admin\MainBundle\Twig\AbstractTableButton;
+use AppBundle\Twig\AbstractTableButton;
 
-class BackTableButton extends AbstractTableButton
+class ViewTableButton extends AbstractTableButton
 {
     /**
      * @return string
      */
     protected function getFunctionName()
     {
-        return 'backTableButton';
+        return 'viewTableButton';
     }
 
     /**
@@ -19,7 +19,7 @@ class BackTableButton extends AbstractTableButton
      */
     protected function getButtonClass()
     {
-        return 'btn-back';
+        return 'btn-view';
     }
 
     /**
@@ -27,6 +27,6 @@ class BackTableButton extends AbstractTableButton
      */
     protected function getIcon()
     {
-        return '<i class="fa fa-angle-double-left"></i> ';
+        return '<i class="fa fa-caret-right"></i> ';
     }
 }

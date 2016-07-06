@@ -1,11 +1,11 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Filters;
+namespace AppBundle\Twig\Filters;
 
-use BaseBundle\Twig\AbstractTwigFilterExtension;
-use Kisphp\Admin\MainBundle\Utils\Strings;
+use AppBundle\Twig\AbstractTwigFilter;
+use AppBundle\Utils\Strings;
 
-class NiceUrlTitleFilter extends AbstractTwigFilterExtension
+class NiceUrlTitleFilter extends AbstractTwigFilter
 {
     /**
      * @return string

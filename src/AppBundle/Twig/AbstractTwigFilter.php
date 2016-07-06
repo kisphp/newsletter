@@ -1,14 +1,14 @@
 <?php
 
-namespace Kisphp\NewsletterBundle\Twig;
+namespace AppBundle\Twig;
 
-abstract class AbstractTwigFunction extends \Twig_SimpleFunction
+abstract class AbstractTwigFilter extends \Twig_SimpleFilter
 {
     public function __construct()
     {
         parent::__construct(
             $this->getFunctionName(),
-            $this->getFunction(),
+            $this->getFilter(),
             $this->getOptions()
         );
     }
@@ -21,7 +21,7 @@ abstract class AbstractTwigFunction extends \Twig_SimpleFunction
     /**
      * @return callable
      */
-    abstract protected function getFunction();
+    abstract protected function getFilter();
 
     /**
      * return array;

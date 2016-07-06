@@ -1,8 +1,8 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Action;
+namespace AppBundle\Twig\Action;
 
-use Kisphp\Admin\MainBundle\Twig\AbstractActionButton;
+use AppBundle\Twig\AbstractActionButton;
 
 class ViewActionButton extends AbstractActionButton
 {

@@ -1,15 +1,17 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Action;
+namespace AppBundle\Twig\Table;
 
-use Kisphp\Admin\MainBundle\Twig\AbstractActionButton;
+use AppBundle\Twig\AbstractTableButton;
 
-class EditActionButton extends AbstractActionButton
+class EditTableButton extends AbstractTableButton
 {
-
+    /**
+     * @return string
+     */
     protected function getFunctionName()
     {
-        return 'editActionButton';
+        return 'editTableButton';
     }
 
     /**

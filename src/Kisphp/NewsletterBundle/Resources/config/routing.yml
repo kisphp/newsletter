@@ -9,6 +9,10 @@ newsletters:
     path: /newsletters
     defaults: { _controller: KisphpNewsletterBundle:Newsletters:index }
 
+newsletter_trigger:
+    path: /newsletters/trigger
+    defaults: { _controller: KisphpNewsletterBundle:Newsletters:index }
+
 subscribers:
     path: /subscribers
     defaults: { _controller: KisphpNewsletterBundle:Subscribers:index }

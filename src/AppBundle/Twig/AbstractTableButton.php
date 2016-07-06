@@ -1,6 +1,6 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig;
+namespace AppBundle\Twig;
 
 abstract class AbstractTableButton extends AbstractActionButton
 {

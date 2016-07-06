@@ -1,9 +1,10 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
-parameters:
-#    parameter_name: value
-
 services:
   users.security.service:
-      class: AppBundle\Services\UserSecurityService
-      arguments: ["@security.encoder_factory"]
+    class: AppBundle\Services\UserSecurityService
+    arguments: ["@security.encoder_factory"]
+
+  twig.app_extensions:
+    class: AppBundle\Twig\AppTwigExtensions
+    public: false
+    tags:
+        - { name: twig.extension }

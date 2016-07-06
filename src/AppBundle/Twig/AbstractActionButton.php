@@ -1,11 +1,10 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig;
+namespace AppBundle\Twig;
 
-use Kisphp\Admin\MainBundle\Utils\ButtonLink;
-use BaseBundle\Twig\AbstractTwigFunctionExtension;
+use AppBundle\Utils\ButtonLink;
 
-abstract class AbstractActionButton extends AbstractTwigFunctionExtension
+abstract class AbstractActionButton extends AbstractTwigFunction
 {
     /**
      * @var string

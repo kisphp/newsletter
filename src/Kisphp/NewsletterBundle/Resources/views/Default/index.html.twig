@@ -1,9 +1,16 @@
 {% extends 'KisphpNewsletterBundle::layout.html.twig' %}
 
 {% block body %}
-    <p>homepage</p>
 
-
-
+    {% for i in 1..3 %}
+        <div class="panel">
+            <div class="panel-title">
+                <a href="">Panel title</a>
+            </div>
+            <div class="panel-body">
+                Panel body
+            </div>
+        </div>
+    {% endfor %}
 
 {% endblock %}

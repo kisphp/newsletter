@@ -1,6 +1,14 @@
 services:
     twig.newsletter_extensions:
-        class: Kisphp\NewsletterBundle\Twig\AdminExtension
-        public: false
+        class: Kisphp\NewsletterBundle\Twig\NewsletterExtensions
+        arguments: ["@router", "@translator.default"]
         tags:
             - { name: twig.extension }
+
+    admin.newsletter.service:
+        class: Kisphp\NewsletterBundle\Services\NewsletterService
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    admin.subscribers.service:
+        class: Kisphp\NewsletterBundle\Services\SubscribersService
+        arguments: ["@doctrine.orm.entity_manager"]

@@ -1,10 +1,10 @@
 <?php
 
-namespace Kisphp\Admin\MainBundle\Twig\Filters;
+namespace AppBundle\Twig\Filters;
 
-use BaseBundle\Twig\AbstractTwigFilterExtension;
+use AppBundle\Twig\AbstractTwigFilterExtension;
 
-class FilterTitleFilter extends AbstractTwigFilterExtension
+class TitleFilter extends AbstractTwigFilterExtension
 {
     /**
      * @return string
