@@ -4,7 +4,6 @@ namespace Kisphp\NewsletterBundle\Entity\Repository;
 
 use AppBundle\Utils\Status;
 use Doctrine\ORM\EntityRepository;
-use Kisphp\NewsletterBundle\Entity\SubscribersEntity;
 
 class SubscribersRepository extends EntityRepository
 {

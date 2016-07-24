@@ -12,10 +12,10 @@ class DefaultControllerTest extends WebTestCase
 
     public function setUp()
     {
-        $this->client = static::createClient(array(), array(
+        $this->client = static::createClient([], [
             'PHP_AUTH_USER' => 'admin@example.com',
-            'PHP_AUTH_PW'   => 'admin',
-        ));
+            'PHP_AUTH_PW' => 'admin',
+        ]);
     }
 
     public function testIndex()
@@ -39,7 +39,7 @@ class DefaultControllerTest extends WebTestCase
 
         $firewall = 'secured_area';
         $token = new UsernamePasswordToken('admin@example.com', null, $firewall, ['ROLE_SUPER_ADMIN']);
-        $session->set('_security_'.$firewall, serialize($token));
+        $session->set('_security_' . $firewall, serialize($token));
         $session->save();
 
         $cookie = new Cookie($session->getName(), $session->getId());
