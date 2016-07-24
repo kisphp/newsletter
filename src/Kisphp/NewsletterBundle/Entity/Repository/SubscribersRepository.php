@@ -9,9 +9,9 @@ use Kisphp\NewsletterBundle\Entity\SubscribersEntity;
 class SubscribersRepository extends EntityRepository
 {
     /**
-     * @return SubscribersEntity[]
+     * @return \Doctrine\ORM\Query
      */
-    public function getAvailableSubscribers()
+    public function getAvailableSubscribersQuery()
     {
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.status = :status')
@@ -22,17 +22,15 @@ class SubscribersRepository extends EntityRepository
             ->orderBy('a.id', 'DESC')
         ;
 
-        return $query->getQuery()->getResult();
+        return $query->getQuery();
     }
 
     /**
      * @param string $email
      *
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     *
-     * @return SubscribersEntity|null
+     * @return \Doctrine\ORM\Query
      */
-    public function getSubscriberByEmail($email)
+    public function getSubscriberByEmailQuery($email)
     {
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.status > :status')
@@ -45,6 +43,6 @@ class SubscribersRepository extends EntityRepository
             ->orderBy('a.id', 'DESC')
         ;
 
-        return $query->getQuery()->getOneOrNullResult();
+        return $query->getQuery();
     }
 }

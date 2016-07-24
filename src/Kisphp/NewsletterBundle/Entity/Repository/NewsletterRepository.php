@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityRepository;
 class NewsletterRepository extends EntityRepository
 {
     /**
-     * @return \Doctrine\ORM\QueryBuilder
+     * @return \Doctrine\ORM\Query
      */
     public function queryNewsletters()
     {
@@ -21,6 +21,6 @@ class NewsletterRepository extends EntityRepository
             ->orderBy('a.id', 'DESC')
         ;
 
-        return $query;
+        return $query->getQuery();
     }
 }
