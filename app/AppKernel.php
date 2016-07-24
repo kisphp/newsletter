@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Kisphp\NewsletterBundle\KisphpNewsletterBundle(),
             new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new \Kisphp\DatabaseBundle\KisphpDatabaseBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d0ef8833068089fb0c45ad8ac8b7f6f0",
-    "content-hash": "f24c55fef5bc3abec1a945f0a43ef697",
+    "hash": "827ce3a574d5d55c2e28515bdfd47dc6",
+    "content-hash": "0985fd370315621c4597dcbe86961576",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -874,6 +874,49 @@
                 "sql"
             ],
             "time": "2014-01-12 16:20:24"
+        },
+        {
+            "name": "kisphp/symfony-database",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/kisphp/symfony-database.git",
+                "reference": "57a6279f074a000ec52f8efe1f98379419110768"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/kisphp/symfony-database/get/57a6279f074a000ec52f8efe1f98379419110768.zip",
+                "reference": "57a6279f074a000ec52f8efe1f98379419110768",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/console": "~2.8|~3.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.9",
+                "phpunit/phpunit": "~4.8",
+                "symfony/var-dumper": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marius",
+                    "email": "mariusbogdan83@gmail.com",
+                    "homepage": "http://www.kisphp.com"
+                }
+            ],
+            "description": "Database import/export command",
+            "time": "2016-06-07 21:58:34"
         },
         {
             "name": "knplabs/knp-components",
