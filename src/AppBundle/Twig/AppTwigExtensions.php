@@ -3,9 +3,6 @@
 namespace AppBundle\Twig;
 
 use AppBundle\Twig\Functions\MatchFunction;
-use AppBundle\Twig\Filters;
-use AppBundle\Twig\Action;
-use AppBundle\Twig\Table;
 
 class AppTwigExtensions extends \Twig_Extension
 {
