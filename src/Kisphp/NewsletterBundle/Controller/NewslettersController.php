@@ -130,7 +130,7 @@ class NewslettersController extends BaseController
 
         return new JsonResponse([
             'code' => Response::HTTP_NOT_FOUND,
-            'message' => 'Objcet not found',
+            'message' => 'Object not found',
         ]);
     }
 
