@@ -39,7 +39,7 @@ class NewsletterService
         return $this->em
             ->getRepository('KisphpNewsletterBundle:NewsletterEntity')
             ->find($newsletterId)
-            ;
+        ;
     }
 
     /**
@@ -52,7 +52,7 @@ class NewsletterService
             ->findBy([
                 'state' => NewsletterEntity::STATE_PENDING,
             ])
-            ;
+        ;
     }
 
     /**
@@ -65,7 +65,7 @@ class NewsletterService
         return $this->em
             ->getRepository('KisphpNewsletterBundle:NewsletterEntity')
             ->queryNewsletters()
-            ;
+        ;
     }
 
     /**

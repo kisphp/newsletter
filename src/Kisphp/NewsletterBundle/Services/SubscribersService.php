@@ -26,8 +26,7 @@ class SubscribersService
     {
         return $this->em
             ->getRepository('KisphpNewsletterBundle:SubscribersEntity')
-            ->getAvailableSubscribersQuery()
-            ->getResult()
+            ->getAvailableSubscribers()
         ;
     }
 
@@ -40,8 +39,7 @@ class SubscribersService
     {
         return $this->em
             ->getRepository('KisphpNewsletterBundle:SubscribersEntity')
-            ->getSubscriberByEmailQuery($email)
-            ->getOneOrNullResult()
+            ->getSubscriberByEmail($email)
         ;
     }
 
