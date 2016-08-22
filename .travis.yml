@@ -14,7 +14,7 @@ script:
   - php bin/console doctrine:database:create
   - php bin/console setup:install-dev
   - php bin/console setup:admin
-  - phpunit --coverage-clover=coverage.xml
+  - vendor/bin/codecept run --xml=../../coverage.xml
   - vendor/bin/php-cs-fixer fix --dry-run
 after_success:
   - bash <(curl -s https://codecov.io/bash)
