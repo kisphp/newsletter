@@ -6,7 +6,6 @@ use AppBundle\Twig\AbstractActionButton;
 
 class BackActionButton extends AbstractActionButton
 {
-
     protected function getFunctionName()
     {
         return 'backActionButton';

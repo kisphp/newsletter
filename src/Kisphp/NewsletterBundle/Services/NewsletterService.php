@@ -8,7 +8,6 @@ use Finite\Loader\ArrayLoader;
 use Finite\State\StateInterface;
 use Finite\StateMachine\StateMachine;
 use Kisphp\NewsletterBundle\Entity\NewsletterEntity;
-use Symfony\Component\HttpFoundation\Request;
 
 class NewsletterService
 {

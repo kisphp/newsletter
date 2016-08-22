@@ -6,7 +6,6 @@ use AppBundle\Twig\AbstractActionButton;
 
 class CreateActionButton extends AbstractActionButton
 {
-
     protected function getFunctionName()
     {
         return 'createActionButton';

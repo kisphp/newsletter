@@ -24,12 +24,10 @@ class NewsletterServiceTest extends Unit
 
     protected function _before()
     {
-
-
         $newsletterRepository = Stub::makeEmpty(
             NewsletterRepository::class,
             [
-                'find' => function($i) {
+                'find' => function ($i) {
                     return $i;
                 },
             ]
@@ -37,7 +35,7 @@ class NewsletterServiceTest extends Unit
         $entityManager = Stub::makeEmpty(
             EntityManager::class,
             [
-                'getRepository' => function() use ($newsletterRepository){
+                'getRepository' => function () use ($newsletterRepository) {
                     return $newsletterRepository;
                 },
                 'persist' => function () {
@@ -62,10 +60,10 @@ class NewsletterServiceTest extends Unit
             NewsletterEntity::class,
             [
                 'status' => '',
-                'setStatus' => function ($status){
+                'setStatus' => function ($status) {
                     $this->status = $status;
                 },
-                'getStatus' => function (){
+                'getStatus' => function () {
                     return $this->status;
                 },
             ]
