@@ -3,7 +3,6 @@
 namespace Kisphp\NewsletterBundle\Controller;
 
 use AppBundle\Controller\BaseController;
-use AppBundle\Utils\Status;
 use Kisphp\NewsletterBundle\Entity\NewsletterEntity;
 use Kisphp\NewsletterBundle\Form\NewsletterForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -164,7 +163,7 @@ class NewslettersController extends BaseController
                 $this->generateUrl(
                     'adm_newsletter_edit',
                     [
-                        'id' => (int) $entity->getId()
+                        'id' => (int) $entity->getId(),
                     ]
                 )
             );
