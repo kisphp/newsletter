@@ -15,9 +15,6 @@ class SubscribersRepository extends EntityRepository
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.status = :status')
             ->setParameter('status', Status::ACTIVE)
-        ;
-
-        $query
             ->orderBy('a.id', 'DESC')
         ;
 
@@ -38,9 +35,6 @@ class SubscribersRepository extends EntityRepository
             ->setParameter('status', Status::DELETED)
             ->andWhere('a.email = :email')
             ->setParameter('email', $email)
-        ;
-
-        $query
             ->orderBy('a.id', 'DESC')
         ;
 

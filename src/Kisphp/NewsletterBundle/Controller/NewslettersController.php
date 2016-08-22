@@ -16,6 +16,8 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class NewslettersController extends BaseController
 {
+    const ROWS_PER_PAGE = 30;
+
     /**
      * @param Request $request
      *
@@ -57,19 +59,19 @@ class NewslettersController extends BaseController
             ->queryNewsletters($request)
         ;
 
-        $paginator = $this->get('knp_paginator');
-        $entities = $paginator->paginate(
+        $pagination = $this->get('knp_paginator');
+        $entities = $pagination->paginate(
             $query,
             $request->query->getInt('page', 1),
-            30
+            self::ROWS_PER_PAGE
         );
 
         $items = $entities->getItems();
         $stateObjects = [];
 
-        $newsSrv = $this->get('admin.newsletter.service');
+        $newsletterService = $this->get('admin.newsletter.service');
         foreach ($items as $item) {
-            $stateObjects[] = $newsSrv->getStateMachine($item);
+            $stateObjects[] = $newsletterService->getStateMachine($item);
         }
 
         return [
@@ -114,12 +116,11 @@ class NewslettersController extends BaseController
         $entityId = $request->request->getInt('id');
         $listingUrl = $this->generateUrl('adm_newsletter_list');
 
-        $entity = $this->get('admin.newsletter.service')->getNewsletterById($entityId);
+        $newsletterService = $this->get('admin.newsletter.service');
+        $entity = $newsletterService->getNewsletterById($entityId);
 
         if ($entity) {
-            $entity->setStatus(Status::DELETED);
-            $this->em->persist($entity);
-            $this->em->flush();
+            $newsletterService->deleteNewsletter($entity);
 
             return new JsonResponse([
                 'code' => Response::HTTP_OK,
@@ -150,17 +151,23 @@ class NewslettersController extends BaseController
             $entity = new NewsletterEntity();
         }
 
-        $newsSrv = $this->get('admin.newsletter.service');
-        $stateObjects = $newsSrv->getStateMachine($entity);
+        $newsletterService = $this->get('admin.newsletter.service');
+        $stateObjects = $newsletterService->getStateMachine($entity);
 
         $editForm = $this->createNewsletterForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $this->em->persist($entity);
-            $this->em->flush();
+            $newsletterService->saveNewsletter($entity);
 
-            return $this->redirect($this->generateUrl('adm_newsletter_edit', ['id' => (int) $entity->getId()]));
+            return $this->redirect(
+                $this->generateUrl(
+                    'adm_newsletter_edit',
+                    [
+                        'id' => (int) $entity->getId()
+                    ]
+                )
+            );
         }
 
         return [

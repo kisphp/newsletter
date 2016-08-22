@@ -2,6 +2,7 @@
 
 namespace Kisphp\NewsletterBundle\Services;
 
+use AppBundle\Utils\Status;
 use Doctrine\ORM\EntityManager;
 use Finite\Loader\ArrayLoader;
 use Finite\State\StateInterface;
@@ -15,6 +16,8 @@ class NewsletterService
     const TRANSITION_SENT = 'sent';
     const TRANSITION_CANCEL = 'cancel';
     const TRANSITION_REACTIVATE = 'reactivate';
+
+    const NEWSLETTER_ENTITY = 'KisphpNewsletterBundle:NewsletterEntity';
 
     /**
      * @var EntityManager
@@ -37,9 +40,34 @@ class NewsletterService
     public function getNewsletterById($newsletterId)
     {
         return $this->em
-            ->getRepository('KisphpNewsletterBundle:NewsletterEntity')
+            ->getRepository(self::NEWSLETTER_ENTITY)
             ->find($newsletterId)
         ;
+    }
+
+    /**
+     * @param NewsletterEntity $entity
+     *
+     * @return NewsletterEntity
+     */
+    public function saveNewsletter(NewsletterEntity $entity)
+    {
+        $this->em->persist($entity);
+        $this->em->flush();
+
+        return $entity;
+    }
+
+    /**
+     * @param NewsletterEntity $entity
+     *
+     * @return NewsletterEntity
+     */
+    public function deleteNewsletter(NewsletterEntity $entity)
+    {
+        $entity->setStatus(Status::DELETED);
+
+        return $this->saveNewsletter($entity);
     }
 
     /**
@@ -48,7 +76,7 @@ class NewsletterService
     public function getPendingNewsletters()
     {
         return $this->em
-            ->getRepository('KisphpNewsletterBundle:NewsletterEntity')
+            ->getRepository(self::NEWSLETTER_ENTITY)
             ->findBy([
                 'state' => NewsletterEntity::STATE_PENDING,
             ])
@@ -63,7 +91,7 @@ class NewsletterService
     public function queryNewsletters(Request $request)
     {
         return $this->em
-            ->getRepository('KisphpNewsletterBundle:NewsletterEntity')
+            ->getRepository(self::NEWSLETTER_ENTITY)
             ->queryNewsletters()
         ;
     }
