@@ -1,0 +1,30 @@
+{% extends "KisphpNewsletterBundle::layout.html.twig" %}
+
+{% set current_page_title = 'Create Newsletter' %}
+
+{% block page_title current_page_title %}
+
+{% block body %}
+
+    <div class="panel">
+        <div class="panel-title">
+            {{ current_page_title | trans }}
+        </div>
+        <div class="panel-body">
+
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+                {{ form_widget(form) }}
+
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <input type="submit" class="btn btn-success" value="{{ 'Save' | trans }}">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}

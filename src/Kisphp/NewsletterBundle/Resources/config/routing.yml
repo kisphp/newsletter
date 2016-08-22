@@ -5,13 +5,8 @@ homepage:
 users_routes:
   resource: "@KisphpNewsletterBundle/Resources/config/routes/users.yml"
 
-newsletters:
-    path: /newsletters
-    defaults: { _controller: KisphpNewsletterBundle:Newsletters:index }
-
-newsletter_trigger:
-    path: /newsletters/trigger
-    defaults: { _controller: KisphpNewsletterBundle:Newsletters:index }
+newsletters_routes:
+  resource: "@KisphpNewsletterBundle/Resources/config/routes/newsletters.yml"
 
 subscribers:
     path: /subscribers
