@@ -8,7 +8,6 @@ use Finite\Loader\ArrayLoader;
 use Finite\State\StateInterface;
 use Finite\StateMachine\StateMachine;
 use Kisphp\NewsletterBundle\Entity\NewsletterEntity;
-use Symfony\Component\HttpFoundation\Request;
 
 class NewsletterService
 {
@@ -84,11 +83,9 @@ class NewsletterService
     }
 
     /**
-     * @param Request $request
-     *
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function queryNewsletters(Request $request)
+    public function queryNewsletters()
     {
         return $this->em
             ->getRepository(self::NEWSLETTER_ENTITY)
@@ -101,6 +98,8 @@ class NewsletterService
      */
     public function createNewsletterStateMachine()
     {
+        $service = $this;
+
         return [
             'class' => 'NewsletterEntity',
             'states' => [
@@ -160,9 +159,8 @@ class NewsletterService
                 'after' => [
                     [
                         'to' => [],
-                        'do' => function (NewsletterEntity $entity) {
-                            $this->em->persist($entity);
-                            $this->em->flush();
+                        'do' => function (NewsletterEntity $entity) use ($service) {
+                            $service->saveNewsletter($entity);
                         },
                     ],
                 ],

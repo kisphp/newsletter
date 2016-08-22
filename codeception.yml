@@ -1,0 +1,35 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+modules:
+    config:
+        Db:
+            dsn: ''
+            user: ''
+            password: ''
+            dump: tests/_data/dump.sql
+
+coverage:
+    remote: true
+    enabled: true
+    c3_url: 'http://localhost/c3.php'
+    whitelist:
+        include:
+            - src/*
+        exclude:
+            - src/*Bundle/Resources/*
+            - src/*Bundle/DependencyInjection/*
+            - src/*/*Bundle/Resources/*
+            - src/*/*Bundle/Tests/*
+            - src/*/*Bundle/DependencyInjection/*

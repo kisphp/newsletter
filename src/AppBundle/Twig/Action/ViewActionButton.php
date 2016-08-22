@@ -6,7 +6,6 @@ use AppBundle\Twig\AbstractActionButton;
 
 class ViewActionButton extends AbstractActionButton
 {
-
     protected function getFunctionName()
     {
         return 'viewActionButton';

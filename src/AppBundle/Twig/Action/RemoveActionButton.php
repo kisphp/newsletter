@@ -6,7 +6,6 @@ use AppBundle\Twig\AbstractActionButton;
 
 class RemoveActionButton extends AbstractActionButton
 {
-
     protected function getFunctionName()
     {
         return 'removeActionButton';
