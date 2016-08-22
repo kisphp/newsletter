@@ -25,12 +25,12 @@
                     <tr id="row-{{ entity.id }}">
                         <td>
                             {% if stateObject.getCurrentState.get('edit') == true %}
-                                edit
-                                {#{{ editTableButton(path('adm_newsletter_edit', {id: entity.id}), 'Edit' | trans, { class: 'btn-sm' }) }}#}
+                                {#edit#}
+                                {{ editTableButton(path('adm_newsletter_edit', {id: entity.id}), 'Edit' | trans, { class: 'btn-sm' }) }}
                             {% endif %}
                             {% if stateObject.getCurrentState.get('delete') == true %}
-                                delete
-                                {#{{ removeTableButton('#', 'Delete' | trans, { id: 'remove-' ~ entity.id, class: 'remove-object' }) }}#}
+                                {#delete#}
+                                {{ removeTableButton('#', 'Delete' | trans, { id: 'remove-' ~ entity.id, class: 'remove-object' }) }}
                             {% endif %}
                         </td>
                         <td>{{ entity.id }}</td>

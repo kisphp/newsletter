@@ -1,0 +1,15 @@
+newsletters:
+    path: /newsletters
+    defaults: { _controller: KisphpNewsletterBundle:Newsletters:index }
+
+adm_newsletter_create:
+    path: /newsletters/create
+    defaults: { _controller: KisphpNewsletterBundle:Newsletters:edit, id: 0 }
+
+adm_newsletter_edit:
+    path: /newsletters/edit/{id}
+    defaults: { _controller: KisphpNewsletterBundle:Newsletters:edit }
+
+newsletter_trigger:
+    path: /newsletters/trigger
+    defaults: { _controller: KisphpNewsletterBundle:Newsletters:index }

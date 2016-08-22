@@ -2,7 +2,7 @@
 
 namespace Kisphp\NewsletterBundle\Form;
 
-use Kisphp\Admin\MainBundle\Utils\Status;
+use AppBundle\Utils\Status;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;

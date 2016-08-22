@@ -151,6 +151,7 @@ class NewslettersController extends BaseController
         }
 
         $newsletterService = $this->get('admin.newsletter.service');
+
         $stateObjects = $newsletterService->getStateMachine($entity);
 
         $editForm = $this->createNewsletterForm($entity);
@@ -163,7 +164,7 @@ class NewslettersController extends BaseController
                 $this->generateUrl(
                     'adm_newsletter_edit',
                     [
-                        'id' => (int) $entity->getId(),
+                        'id' => $entity->getId(),
                     ]
                 )
             );
@@ -184,7 +185,7 @@ class NewslettersController extends BaseController
     public function createNewsletterForm(NewsletterEntity $entity)
     {
         $form = $this->createForm(
-            new NewsletterForm(),
+            NewsletterForm::class,
             $entity,
             [
                 'method' => 'PUT',
