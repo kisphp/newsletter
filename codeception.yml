@@ -19,3 +19,16 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
+
+coverage:
+    remote: true
+    enabled: true
+    whitelist:
+        include:
+            - src/*
+        exclude:
+            - src/*Bundle/Resources/*
+            - src/*Bundle/DependencyInjection/*
+            - src/*/*Bundle/Resources/*
+            - src/*/*Bundle/Tests/*
+            - src/*/*Bundle/DependencyInjection/*
