@@ -8,40 +8,38 @@ use Doctrine\ORM\EntityRepository;
 class SubscribersRepository extends EntityRepository
 {
     /**
-     * @return \Doctrine\ORM\Query
+     * @return array
      */
-    public function getAvailableSubscribersQuery()
+    public function getAvailableSubscribers()
     {
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.status = :status')
             ->setParameter('status', Status::ACTIVE)
-        ;
-
-        $query
             ->orderBy('a.id', 'DESC')
         ;
 
-        return $query->getQuery();
+        return $query->getQuery()
+            ->getResult()
+        ;
     }
 
     /**
-     * @param string $email
+     * @param array $email
      *
-     * @return \Doctrine\ORM\Query
+     * @return array
      */
-    public function getSubscriberByEmailQuery($email)
+    public function getSubscriberByEmail($email)
     {
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.status > :status')
             ->setParameter('status', Status::DELETED)
             ->andWhere('a.email = :email')
             ->setParameter('email', $email)
-        ;
-
-        $query
             ->orderBy('a.id', 'DESC')
         ;
 
-        return $query->getQuery();
+        return $query->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
 }

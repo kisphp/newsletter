@@ -15,9 +15,6 @@ class NewsletterRepository extends EntityRepository
         $query = $this->createQueryBuilder('a')
             ->andWhere('a.status > :status')
             ->setParameter('status', Status::DELETED)
-        ;
-
-        $query
             ->orderBy('a.id', 'DESC')
         ;
 
