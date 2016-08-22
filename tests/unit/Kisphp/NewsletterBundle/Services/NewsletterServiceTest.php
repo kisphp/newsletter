@@ -10,6 +10,10 @@ use Kisphp\NewsletterBundle\Entity\NewsletterEntity;
 use Kisphp\NewsletterBundle\Entity\Repository\NewsletterRepository;
 use Kisphp\NewsletterBundle\Services\NewsletterService;
 
+/**
+ * @group NewsletterService
+ * @group Newsletter
+ */
 class NewsletterServiceTest extends Unit
 {
     /**
@@ -50,24 +54,12 @@ class NewsletterServiceTest extends Unit
         $this->service = new NewsletterService($entityManager);
     }
 
-    protected function _after()
-    {
-    }
-
+    /**
+     * @return NewsletterEntity
+     */
     protected function createEntity()
     {
-        return Stub::makeEmpty(
-            NewsletterEntity::class,
-            [
-                'status' => '',
-                'setStatus' => function ($status) {
-                    $this->status = $status;
-                },
-                'getStatus' => function () {
-                    return $this->status;
-                },
-            ]
-        );
+        return new NewsletterEntity();
     }
 
     // tests

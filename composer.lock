@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cbac48dc77cb1716e74238c5f624c223",
-    "content-hash": "3790effe5e270eee43e963683f19e709",
+    "hash": "84235c7fb92a7ecf733567fb4a8eed67",
+    "content-hash": "de5fdcb4a1539cb14460286ef5392078",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2253,6 +2253,56 @@
                 "parser"
             ],
             "time": "2015-12-30 14:47:00"
+        },
+        {
+            "name": "codeception/c3",
+            "version": "2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/c3.git",
+                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/c3/zipball/51eec2c3a8e093deb621f58004f0393dc0871983",
+                "reference": "51eec2c3a8e093deb621f58004f0393dc0871983",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.4.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Codeception\\c3\\Installer"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\c3\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tiger Seo",
+                    "email": "tiger.seo@gmail.com"
+                },
+                {
+                    "name": "Michael Bodnarchuk",
+                    "email": "davert.php@codegyre.com",
+                    "homepage": "http://codegyre.com"
+                }
+            ],
+            "description": "CodeCoverage collector for Codeception",
+            "homepage": "http://codeception.com/",
+            "keywords": [
+                "code coverage",
+                "codecoverage"
+            ],
+            "time": "2016-06-27 16:49:12"
         },
         {
             "name": "codeception/codeception",
