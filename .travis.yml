@@ -22,7 +22,8 @@ install:
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
-  - echo "<?php \n\n require_once __DIR__ . '/app_dev.php';\n" > web/index.php
+  - cat /etc/apache2/sites-available/default
+  - echo "<?php \n\n require_once __DIR__ . '/app_dev.php';\n" > $TRAVIS_BUILD_DIR/web/index.php
 script:
   - php bin/console doctrine:database:create
   - php bin/console setup:install-dev
