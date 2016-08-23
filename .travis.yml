@@ -22,14 +22,14 @@ install:
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
-  - cat /etc/apache2/sites-available/default
+  #- cat /etc/apache2/sites-available/default
   - cp $TRAVIS_BUILD_DIR/build/index_test.php $TRAVIS_BUILD_DIR/web/index.php
-  - cat $TRAVIS_BUILD_DIR/web/index.php
+  #- cat $TRAVIS_BUILD_DIR/web/index.php
 script:
   - php bin/console doctrine:database:create
   - php bin/console setup:install-dev
   - php bin/console setup:admin
-  - vendor/bin/codecept run --xml
+  - vendor/bin/codecept run unit --xml
   - vendor/bin/php-cs-fixer fix --dry-run
 after_success:
   - bash <(curl -s https://codecov.io/bash)
