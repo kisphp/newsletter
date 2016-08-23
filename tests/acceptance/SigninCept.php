@@ -1,9 +1,6 @@
 <?php 
 
 $I = new AcceptanceTester($scenario);
-$I->wantTo('Successfully authenticate');
+$I->wantTo('See the login page');
 $I->amOnPage('/');
-$I->fillField('_username', 'admin@example.com');
-$I->fillField('_password', 'admin');
-$I->click('Log In');
-$I->see('My Account');
+$I->see('Log In');

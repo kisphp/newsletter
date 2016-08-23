@@ -23,7 +23,7 @@ modules:
 coverage:
     remote: true
     enabled: true
-    c3_url: 'http://localhost/c3.php'
+    c3_url: 'http://localhost'
     whitelist:
         include:
             - src/*
