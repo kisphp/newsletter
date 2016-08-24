@@ -2,8 +2,8 @@
 
 namespace Kisphp\NewsletterBundle\Twig\Functions;
 
-use Finite\StateMachine\StateMachineInterface;
 use AppBundle\Twig\AbstractTwigFunction;
+use Finite\StateMachine\StateMachineInterface;
 use Kisphp\NewsletterBundle\Services\NewsletterService;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\Translation\Translator;
