@@ -1,6 +1,10 @@
 {% extends "KisphpNewsletterBundle::layout.html.twig" %}
 
+{% if entity.id > 0 %}
+{% set current_page_title = 'Edit Newsletter' %}
+{% else %}
 {% set current_page_title = 'Create Newsletter' %}
+{% endif %}
 
 {% block page_title current_page_title %}
 

@@ -9,4 +9,5 @@ modules:
     enabled:
         - PhpBrowser:
             url: http://localhost/
+            browser: firefox
         - \Helper\Acceptance
