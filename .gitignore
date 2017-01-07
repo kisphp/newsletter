@@ -21,4 +21,8 @@ node_modules/
 _vm/
 *.log
 
-tests/_output/*
+tests/_output/*bin/symfony_requirements
+var/SymfonyRequirements.php
+tests/_support/_generated/
+web/index.php
+bin/symfony_requirements

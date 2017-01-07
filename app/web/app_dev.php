@@ -24,7 +24,10 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 $loader = require __DIR__.'/../app/autoload.php';
 Debug::enable();
 
-$kernel = new AppKernel('dev', true);
+if (!isset($environment)) {
+    $environment = 'dev';
+}
+$kernel = new AppKernel($environment, true);
 $kernel->loadClassCache();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);

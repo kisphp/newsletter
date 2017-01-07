@@ -85,11 +85,10 @@ class UserEntity implements UserInterface
     }
 
     /**
-     * @return null
      */
     public function getSalt()
     {
-        return null;
+        return;
     }
 
     /**

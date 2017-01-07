@@ -17,4 +17,16 @@ class IndexController extends Controller
     {
         return [];
     }
+
+    public function codeceptAction($type)
+    {
+        $path = $this->get('kernel')
+            ->getRootDir();
+
+        $rootPath = realpath($path . '/../');
+
+        include_once $rootPath . '/c3.php';
+
+        die;
+    }
 }

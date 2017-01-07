@@ -21,7 +21,7 @@ var config = {
     ],
     scss: {
       external: [
-        sourceBower + 'foundation-sites/dist/foundation.min.css',
+        sourceBower + 'foundation-sites/dist/css/foundation.min.css',
         sourceBower + 'font-awesome/css/font-awesome.min.css',
         sourceBower + 'sweetalert/dist/sweetalert.css'
       ],
@@ -32,7 +32,7 @@ var config = {
     js: {
       external: [
         sourceBower + 'jquery/dist/jquery.min.js',
-        sourceBower + 'foundation-sites/dist/foundation.min.js',
+        sourceBower + 'foundation-sites/dist/js/foundation.min.js',
         sourceBower + 'sweetalert/dist/sweetalert.min.js'
       ],
       internal: [
@@ -68,8 +68,8 @@ gulp.task('copy-fonts', function(){
 
 gulp.task('js-external', function(){
   return gulp.src(config.sources.js.external)
-    .pipe(strip())
-    .pipe(uglify())
+    //.pipe(strip())
+    //.pipe(uglify())
     .pipe(concat('external.js'))
     .pipe(gulp.dest(targetPublicAssets + 'js/'))
     ;

@@ -62,7 +62,21 @@ class NewsletterServiceTest extends Unit
         return new NewsletterEntity();
     }
 
-    // tests
+    public function test_save_newsletter()
+    {
+        $entity = $this->createEntity();
+
+        $output = $this->service
+            ->saveNewsletter($entity)
+        ;
+
+//        self::assertTrue(false);
+        self::assertNotNull($output);
+    }
+
+    /**
+     * @depends test_save_newsletter
+     */
     public function test_get_newsletter_by_id()
     {
         $entity = $this->service
@@ -72,17 +86,9 @@ class NewsletterServiceTest extends Unit
         self::assertEquals(1, $entity);
     }
 
-    public function test_save_newsletter()
-    {
-        $entity = $this->createEntity();
-
-        $output = $this->service
-            ->saveNewsletter($entity)
-        ;
-
-        self::assertNotNull($output);
-    }
-
+    /**
+     * @depends test_save_newsletter
+     */
     public function test_delete_entity()
     {
         $entity = $this->createEntity();
