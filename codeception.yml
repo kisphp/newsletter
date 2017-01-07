@@ -18,9 +18,9 @@ extensions:
 modules:
     config:
         Db:
-            dsn: 'mysql:host=localhost;dbname=development'
-            user: 'developer'
-            password: 'develop123'
+            dsn: 'mysql:host=dev.local;dbname=newsletter'
+            user: 'newsletter'
+            password: 'newsletter'
             dump: tests/_data/dump.sql
     enabled:
         - Db:
