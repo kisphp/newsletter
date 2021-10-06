@@ -1,7 +1,7 @@
 services:
     twig.newsletter_extensions:
         class: Kisphp\NewsletterBundle\Twig\NewsletterExtensions
-        arguments: ["@router", "@translator.default"]
+        arguments: ["@router", "@translator"]
         tags:
             - { name: twig.extension }
 
